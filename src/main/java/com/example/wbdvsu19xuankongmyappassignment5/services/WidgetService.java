@@ -29,6 +29,7 @@ public class WidgetService {
 
 
   public List<Widget> findAllWigets() {
+    System.out.println("find all widgets fired");
     return widgets;
   }
 

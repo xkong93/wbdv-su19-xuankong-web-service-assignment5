@@ -3,6 +3,7 @@ package com.example.wbdvsu19xuankongmyappassignment5.controller;
 import com.example.wbdvsu19xuankongmyappassignment5.models.Widget;
 import com.example.wbdvsu19xuankongmyappassignment5.services.WidgetService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin("*")
 public class WidgetController {
 
   WidgetService widgetService;
@@ -50,7 +52,7 @@ public class WidgetController {
   }
 
   @PutMapping("/api/widgets/{widgetId}")
-  publ  ic Widget updateWidget(
+  public Widget updateWidget(
           @PathVariable("widgetId") Integer wid,
           @RequestBody Widget newWidget) {
     return widgetService.updateWidget(wid, newWidget);

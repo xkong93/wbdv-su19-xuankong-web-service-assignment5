@@ -37,7 +37,6 @@ public class WidgetController {
     return widgetService.findAllWigets();
   }
 
-
   @GetMapping("/api/widgets")
   public List<Widget> findAllWigets(Widget widget) {
 
@@ -46,20 +45,19 @@ public class WidgetController {
 
 
   @GetMapping("/api/widgets/{widgetId}")
-  public Widget findWidgetById(@PathVariable("widgetId") Integer id) {
-
+  public Widget findWidgetById(@PathVariable("widgetId") Long id) {
     return widgetService.findWidgetById(id);
   }
 
   @PutMapping("/api/widgets/{widgetId}")
   public Widget updateWidget(
-          @PathVariable("widgetId") Integer wid,
+          @PathVariable("widgetId") Long wid,
           @RequestBody Widget newWidget) {
     return widgetService.updateWidget(wid, newWidget);
   }
 
   @DeleteMapping("/api/widgets/{widgetId}")
-  public void deleteWidget(@PathVariable("widgetId") Integer wid) {
+  public void deleteWidget(@PathVariable("widgetId") Long wid) {
 
     widgetService.deleteWidget(wid);
   }

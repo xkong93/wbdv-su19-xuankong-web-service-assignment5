@@ -15,11 +15,11 @@ public class WidgetService {
 
 
   static {
-    widgets.add(new Widget(123, Widget.Type.HEADING, "Widget 1", "1", "heading demo text", "", true));
-    widgets.add(new Widget(234, Widget.Type.PARAGRAPH, "Widget 2", "2", "para demo text", "", true));
-    widgets.add(new Widget(345, Widget.Type.IMAGE, "Widget 3", "2", "img demo text", "https://northeastern.blackboard.com/branding/_1_1/NortheasternUniversityBlackboardBannerGray.png", true));
-    widgets.add(new Widget(567, Widget.Type.LINK, "Widget 4", "2", "link demo text", "https://northeastern.blackboard.com/", true));
-    widgets.add(new Widget(789, Widget.Type.LIST, "Widget 5", "2", "Hello World", "", false));
+    widgets.add(new Widget((long)123, Widget.Type.HEADING, "Widget 1", "1", "heading demo text", "", "1"));
+    widgets.add(new Widget((long)234, Widget.Type.PARAGRAPH, "Widget 2", "2", "para demo text", "", "1"));
+    widgets.add(new Widget((long)345, Widget.Type.IMAGE, "Widget 3", "2", "img demo text", "https://northeastern.blackboard.com/branding/_1_1/NortheasternUniversityBlackboardBannerGray.png", "1"));
+    widgets.add(new Widget((long)567, Widget.Type.LINK, "Widget 4", "2", "link demo text", "https://northeastern.blackboard.com/", "0"));
+    widgets.add(new Widget((long)789, Widget.Type.LIST, "Widget 5", "2", "Hello\nWorld", "", "0"));
   }
 
   public List<Widget> createWidget(Widget widget) {
@@ -29,12 +29,11 @@ public class WidgetService {
 
 
   public List<Widget> findAllWigets() {
-    System.out.println("find all widgets fired");
     return widgets;
   }
 
 
-  public Widget findWidgetById(Integer id) {
+  public Widget findWidgetById(Long id) {
     for (Widget widget : widgets) {
       if (widget.getId().equals(id)) {
         return widget;
@@ -43,11 +42,11 @@ public class WidgetService {
     return null;
   }
 
-  public Widget updateWidget(Integer wid, Widget newWidget) {
+  public Widget updateWidget(Long wid, Widget newWidget) {
 
     for (Widget widget : widgets) {
       if (widget.getId().equals(wid)) {
-        widget.setWidgetType(newWidget.getWidgetType());
+        widget.setType(newWidget.getType());
         widget.setName(newWidget.getName());
         widget.setSize(newWidget.getSize());
         widget.setText(newWidget.getText());
@@ -59,7 +58,7 @@ public class WidgetService {
     return null;
   }
 
-  public void deleteWidget(Integer wid) {
+  public void deleteWidget(Long wid) {
     for (int i = 0; i < widgets.size(); i++) {
       if (widgets.get(i).getId().equals(wid)) {
         widgets.remove(i);

@@ -20,13 +20,13 @@ public class Widget {
     Boolean,
   }
 
-  private Integer id;
-  private Type widgetType;
+  private Long id;
+  private Type type;
   private String name;
   private String size;
   private String text;
   private String src;
-  private boolean order;
+  private String order;
 //  private String width;
 //  private String height;
 //  private String cssClass;
@@ -37,9 +37,9 @@ public class Widget {
   public Widget() {
   }
 
-  public Widget(Integer id, Type widgetType, String name, String size, String text, String src, boolean order) {
+  public Widget(Long id, Type type, String name, String size, String text, String src, String order) {
     this.id = id;
-    this.widgetType = widgetType;
+    this.type = type;
     this.name = name;
     this.size = size;
     this.text = text;
@@ -53,11 +53,11 @@ public class Widget {
 //    this.dataType = dataType;
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -69,22 +69,21 @@ public class Widget {
     this.name = name;
   }
 
-  public Type getWidgetType() {
-    return widgetType;
+  public Type getType() {
+    return type;
   }
 
-  public void setWidgetType(Type widgetType) {
-    this.widgetType = widgetType;
+  public void setType(Type type) {
+    this.type = type;
   }
 
-  public boolean getOrder() {
+  public String getOrder() {
     return order;
   }
 
-  public void setOrder(boolean order) {
+  public void setOrder(String order) {
     this.order = order;
   }
-
   public String getText() {
     return text;
   }
